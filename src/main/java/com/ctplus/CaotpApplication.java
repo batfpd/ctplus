@@ -35,10 +35,8 @@ public class CaotpApplication {
         return CThostFtdcMdApi.CreateFtdcMdApi();
     }
 
-//    final static String accessKeyId="LTAI5tK2xzoQ7v4dcA91CcAy";
-//    final static String accessKeySecret="PNZmUZWbxzEOrlFAxox3Eymee0gCJr";
-    final static String accessKeyId="LTAI4G3niPmaFHTh4YrLCL8Z";
-    final static String accessKeySecret="9CUEBEpFNTrMXVICdomWOFXoJ3ZCGt";
+    final static String accessKeyId="aliyun-message-access-key-id";
+    final static String accessKeySecret="aliyun-message-access-key-secret";
 
     @Bean
     public Client messageClient() throws Exception {
