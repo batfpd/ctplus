@@ -1,0 +1,8 @@
+db: biu
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://101.101.101.101:3306/${db}?characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: 101.101.101.101

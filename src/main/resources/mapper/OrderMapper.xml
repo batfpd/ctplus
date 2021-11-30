@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctplus.dao.OrderMapper">
+    <select id="getAll" resultType="OrderEntity">
+        SELECT * FROM TradeRecord;
+    </select>
+
+    <select id="getOrderByStrategyAndTime" resultType="OrderEntity">
+        SELECT * FROM TradeRecord WHERE Strategy=#{strategyName} AND UNIX_TIMESTAMP(Timest)>UNIX_TIMESTAMP(#{startTime}) AND UNIX_TIMESTAMP(#{endTime})>UNIX_TIMESTAMP(Timest) ORDER BY Timest ASC
+    </select>
+
+    <insert id="save">
+    INSERT INTO TradeRecord (ExchangeID, OrderLocalID, OrderSysID, FrontID, SessionID, OrderRef,
+                             Instrument, Direction, Volume, DealPrice, IdealPrice, TradeDate,
+                             TradeTime, Strategy) VALUES (#{trade.ExchangeID},#{trade.OrderLocalID},#{trade.OrderSysID},
+                            #{trade.FrontID},#{trade.SessionID},#{trade.OrderRef},#{trade.Instrument},#{trade.Direction},
+                            #{trade.Volume},#{trade.DealPrice},#{trade.IdealPrice},#{trade.TradeDate},#{trade.TradeTime},
+                            #{trade.Strategy},)
+    </insert>
+</mapper>
+
